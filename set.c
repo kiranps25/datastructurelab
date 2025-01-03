@@ -1,161 +1,120 @@
 #include<stdio.h>
+
 int main()
 {
-    int u[5] = {1, 2, 3, 4, 5};
-    int a[5] = {0, 1, 1, 0, 1};
-    int b[5] = {1, 0, 1, 0, 1};
-    int uni[5], inter[5], diffa[5], diffb[5], compa[5], compb[5];
-    int i;
+int i;
+  int U[5]={1,2,3,4,5};
+  int A[5]={1,0,0,1,1};
+  int B[5]={0,1,1,1,0};
+  int uni[5],ints[5],diffB[5],diffA[5],compA[5],compB[5];
+  
+  //universal set
+  printf("\n UNIVERSAL SET IS {");
+  for(i=0;i<5;i++){
+    printf("%d ",U[i]);
+  }
+  printf("} \n"); 
 
-    //display u
-    printf("universel set={");
-    for  (i = 0; i < 5; i++)
-    {
-        printf(" %d ", u[i]);
-    }
-    printf("}\n");
+  //set a
+  printf("\n SET A {");
+  for(i=0;i<5;i++){
+    if(A[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n"); 
+  
+  //set b
+  printf("\n SET B {");
+  for(i=0;i<5;i++){
+    if(B[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n"); 
+  
+  //union
+  for(i=0;i<5;i++){
+    uni[i]=A[i]|B[i];
+    printf("%d",uni[i]);
+  }
+  printf("\n UNION {");
+  for(i=0;i<5;i++){
+    if(uni[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
+ //inter section
+ for(i=0;i<5;i++){
+    ints[i]=A[i]&B[i];
+    printf("%d",ints[i]);
+  }
+  printf("\n INTERSECTION {");
+  for(i=0;i<5;i++){
+    if(ints[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
 
-    //display a
-    printf("set A={");
-    for  (i = 0; i < 5; i++)
-    {
-        if (a[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-        
-    }
+ // a comp
+ for(i=0;i<5;i++){
+    compA[i]=1-A[i];
+    printf("%d",compA[i]);
+  }
+  printf("\n A COMPLIMENT {");
+  for(i=0;i<5;i++){
+    if(compA[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
 
-    printf("}\n");
-    printf("set B={");
-    for  (i = 0; i < 5; i++)
-    {
-        if (b[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-        
-    }
-    printf("}\n");
-    printf("union in bit representation A&B={");
-    for ( i = 0; i < 5; i++)
-    {
-        uni[i] = a[i] | b[i];
-        printf(" %d ", uni[i]);
-    }
-    printf("}\n");
-    printf("AUB={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (uni[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("intersection in bit representation A&B={");
-    for ( i = 0; i < 5; i++)
-    {
-        inter[i] = a[i] & b[i];
-        printf(" %d ", inter[i]);
-    }
-    printf("}\n");
-    printf("AnB={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (inter[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("union in bit representation A&B={");
-    for ( i = 0; i < 5; i++)
-    {
-        uni[i] = a[i] | b[i];
-        printf(" %d ", uni[i]);
-    }
-    printf("}\n");
-    printf("AUB={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (uni[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("A compliment={");
-    for ( i = 0; i < 5; i++)
-    {
-        compa[i] = 1-a[i];
-        printf(" %d ", compa[i]);
-    }
-    printf("}\n");
-    printf("A'={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (compa[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("B compliment={");
-    for ( i = 0; i < 5; i++)
-    {
-        compb[i] = 1-b[i];
-        printf(" %d ", compb[i]);
-    }
-    printf("}\n");
-    printf("B'={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (compb[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("A-B={");
-    for ( i = 0; i < 5; i++)
-    {
-        diffa[i] = a[i]&compb[i];
-        printf(" %d ", diffa[i]);
-    }
-    printf("}\n");
-    printf("A-B={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (diffa[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
-    printf("B-A={");
-    for ( i = 0; i < 5; i++)
-    {
-        diffb[i] = b[i]&compa[i];
-        printf(" %d ", diffb[i]);
-    }
-    printf("}\n");
-    printf("B-A={");
-    for ( i = 0; i < 5; i++)
-    {
-        if (diffb[i]==1)
-        {
-            printf(" %d ", u[i]);
-        }
-        
-    }
-    printf("}\n");
+ //b comp
+  for(i=0;i<5;i++){
+    compB[i]=1-B[i];
+    printf("%d",compA[i]);
+  }
+  printf("\n B COMPLIMENT {");
+  for(i=0;i<5;i++){
+    if(compB[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
+ 
+ //A-B
+  for(i=0;i<5;i++){
+    diffA[i]=A[i]&compB[i];
+    printf("%d",compA[i]);
+  }
+  printf("\n A-B {");
+  for(i=0;i<5;i++){
+    if(diffA[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
+ 
+ //B-A
+ for(i=0;i<5;i++){
+    diffB[i]=B[i]&compA[i];
+    printf("%d",compB[i]);
+  }
+  printf("\n B-A {");
+  for(i=0;i<5;i++){
+    if(diffB[i]==1){
+      printf("%d ",U[i]);
+    } 
+  }
+  printf("} \n");
+ 
+ 
+return 0;
 }
